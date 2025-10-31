@@ -13,6 +13,7 @@ export default function TimeoutComponent({ contractAddress, timeoutFunction }: {
             chainId: sepolia.id,
             abi: rpsAbi,
             functionName: timeoutFunction,
+            args: []
         })
     }
 

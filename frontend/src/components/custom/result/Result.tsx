@@ -8,7 +8,6 @@ import { sepolia } from "viem/chains"
 import { useAccount, useReadContract, useWriteContract, } from "wagmi"
 import MoveSelect from "../MoveSelect"
 import { Move } from "@/constants/types"
-import { toast } from "sonner"
 import TimeoutComponent from "./Timeout"
 import { Button } from "@/components/ui/button"
 
@@ -18,7 +17,7 @@ export default function Result() {
     const [salt, setSalt] = useState<number>()
     const [move, setMove] = useState<Move>(Move.Null)
 
-    const { writeContract, error, isPending } = useWriteContract()
+    const { writeContract, isPending } = useWriteContract()
 
     if (!contractAddress || !isAddress(contractAddress)) {
         return (
@@ -81,10 +80,6 @@ export default function Result() {
             functionName: "solve",
             args: [move, salt],
         })
-    }
-
-    if (error) {
-        toast(`Issue calling the solve function ${error}`)
     }
 
     return (

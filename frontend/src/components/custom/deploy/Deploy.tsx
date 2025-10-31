@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { isAddress, solidityPackedKeccak256 } from "ethers"
 import { parseEther } from "viem"
 import { toast } from "sonner"
+import { CopyButton } from "../CopyButton"
 
 function generateHash(move: number, salt: number): string {
     const hash = solidityPackedKeccak256(['uint8', 'uint256'], [move, salt])
@@ -120,7 +121,9 @@ export default function DeployContract() {
                             )
                         }
                         {isConfirming && <p>Waiting for confirmation...</p>}
-                        {isSuccess && <p>Contract deployed successfully!</p>}
+                        {isSuccess && <><p>Contract deployed successfully! Copy the url and share with your opponent to play</p>
+                            <CopyButton text={`/bet/${contractAddress}`} label="Copy address" />
+                        </>}
                     </div>
                 )
             }

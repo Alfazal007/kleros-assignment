@@ -32,10 +32,6 @@ export default function DeployContract() {
     const [salt, setSalt] = useState<number>(0)
     const [contractAddress, setContractAddress] = useState<`0x${string}`>()
 
-    useEffect(() => {
-        console.log({ chainId })
-    }, [chainId])
-
     const { deployContract, data: hash, isPending } = useDeployContract()
     const { isLoading: isConfirming, isSuccess, data: receipt } = useWaitForTransactionReceipt({
         hash,

@@ -6,6 +6,7 @@ import DeployContract from "./components/custom/deploy/Deploy"
 import { Toaster } from "sonner"
 import { BrowserRouter, Route, Routes } from "react-router"
 import BetPage from "./components/custom/secondPlayer/Bet"
+import Result from "./components/custom/result/Result"
 
 function App() {
     const queryClient = new QueryClient()
@@ -18,6 +19,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<DeployContract />} />
                         <Route path="/bet/:contractAddress" element={<BetPage />} />
+                        <Route path="/result/:contractAddress" element={<Result />} />
                     </Routes>
                     <Toaster />
                 </BrowserRouter>

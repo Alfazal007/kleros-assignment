@@ -60,7 +60,6 @@ export default function BetPage() {
         )
     }
 
-
     return (
         <div>
             <div className="contract-info">

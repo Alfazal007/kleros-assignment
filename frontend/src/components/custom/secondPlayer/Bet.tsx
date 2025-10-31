@@ -64,8 +64,7 @@ export default function BetPage() {
         <div>
             <div className="contract-info">
                 <SelectAndBet ethToStake={stakeData as bigint} address={contractAddress} />
-                <p>Result Page</p>
-                <Link to={`${window.location.origin}/result/${contractAddress}`}>Result Page</Link>
+                <Link to={`${window.location.origin}/result/${contractAddress}`} className="text-blue-500">Result Page</Link>
             </div>
         </div>
     )
